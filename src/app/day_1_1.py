@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 def get_data() -> list[str]:
-    with Path('src/app/day_1.data').open() as f:
+    with Path('src/app/data/day_1.data').open() as f:
         return f.readlines()
 
 
