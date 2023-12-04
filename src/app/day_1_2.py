@@ -26,18 +26,17 @@ def get_first_num(row: str) -> str:
     string = ''
 
     for char in row:
-        try:
-            int(char)
+        if char.isdigit():
             num_as_string = char
             break
-        except ValueError:
-            string += char
 
-            if len(string) >= min_string_num_length:
-                for key in nums_as_strings:
-                    if string.endswith(key):
-                        num_as_string = str(nums_as_strings[key])
-                        break
+        string += char
+
+        if len(string) >= min_string_num_length:
+            for key in nums_as_strings:
+                if string.endswith(key):
+                    num_as_string = str(nums_as_strings[key])
+                    break
         if num_as_string:
             break
     return num_as_string
@@ -48,18 +47,18 @@ def get_second_num(row: str) -> str:
     string = ''
 
     for char in reversed(row):
-        try:
-            int(char)
+        if char.isdigit():
             num_as_string = char
             break
-        except ValueError:
-            string = f'{char}{string}'
 
-            if len(string) >= min_string_num_length:
-                for key in nums_as_strings:
-                    if string.startswith(key):
-                        num_as_string = str(nums_as_strings[key])
-                        break
+        string = f'{char}{string}'
+
+        if len(string) >= min_string_num_length:
+            for key in nums_as_strings:
+                if string.startswith(key):
+                    num_as_string = str(nums_as_strings[key])
+                    break
+
         if num_as_string:
             break
     return num_as_string

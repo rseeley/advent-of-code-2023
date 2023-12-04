@@ -11,12 +11,9 @@ def game_is_possible(game: str, allowed_color_counts: dict[str, int]) -> bool:
     game_sets = game.split(': ')[1].split(';')
 
     for game_set in game_sets:
-        print(f'{game_set=}')
         color_counts = game_set.lstrip(' ').rstrip(' ').split(', ')
-        print(f'{color_counts=}')
 
         for color_count in color_counts:
-            print(f'{color_count=}')
             color_info = color_count.split(' ')
             count = int(color_info[0])
             name = color_info[1]
